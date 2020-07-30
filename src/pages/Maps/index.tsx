@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
+
 import { View } from 'react-native';
 import { Title } from './styles';
 
