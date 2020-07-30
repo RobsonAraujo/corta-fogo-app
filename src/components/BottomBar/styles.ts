@@ -18,7 +18,6 @@ export const ContainerBottomBarInfo = styled.View`
   justify-content: space-around;
   flex: 1;
 `;
-export const ContainerBottomBarConfirmReport = styled.View``;
 
 export const Title = styled.Text`
   color: #333333;
@@ -51,5 +50,54 @@ export const ReportText = styled.Text`
   font-size: 16px;
   line-height: 19px;
   color: #f2994a;
-  Roboto-Regular
+  font-family: Roboto-Regular;
+`;
+
+export const ContainerBottomBarConfirmReport = styled.View`
+  flex: 1;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const ConfirmReportButton = styled(RectButton)`
+  width: 129px;
+  height: 40px;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  border-radius: 4px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+`;
+
+export const ConfirmReportText = styled.Text`
+  font-family: Roboto-Regular;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #27ae60;
+  margin-left: 8px;
+`;
+
+export const CancellReportButton = styled(RectButton)`
+  width: 129px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+`;
+export const CancellReportText = styled.Text`
+  font-family: Roboto-Regular;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-decoration-line: underline;
+  color: #eb5757;
+`;
+
+export const Box = styled.View`
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 `;
