@@ -13,7 +13,7 @@ import { useReportInfos } from '../../hooks/reportInfos';
 const Home: React.FC = () => {
   const [modal, setModal] = useState(false);
   const { firstQuestionAnswer } = useReportInfos();
-  console.log('firstQuestionAnswer', firstQuestionAnswer);
+
   return (
     <>
       <Maps />
