@@ -10,20 +10,20 @@ import {
 import Button from '../../Button';
 import ArrowLeft from '../../Icons/ArrowLeft';
 
-const FirstQuestion: React.FC = () => (
+const SecondQuestion: React.FC = () => (
   <Container>
     <ArrowLeft />
     <TitlePage>Nos ajude a entender melhor a situação do incêndio 🤔</TitlePage>
     <Box>
-      <TitleQuestion>Onde ocorre o foco do incêndio??</TitleQuestion>
+      <TitleQuestion>Qual a proporção do incêndio?</TitleQuestion>
       <ChooseButton>
-        <ChooseText>Queima de materiais</ChooseText>
+        <ChooseText>Baixa, o foco está em um lugar</ChooseText>
       </ChooseButton>
       <ChooseButton selected>
-        <ChooseText selected>Em árvores</ChooseText>
+        <ChooseText selected>Alta, está se alastrando</ChooseText>
       </ChooseButton>
     </Box>
     <Button disabled>Continuar</Button>
   </Container>
 );
-export default FirstQuestion;
+export default SecondQuestion;

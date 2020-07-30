@@ -1,3 +1,2 @@
-import FirstQuestion from './FirstQuestion';
-
-export { FirstQuestion };
+export { default as SecondQuestion } from './SecondQuestion';
+export { default as FirstQuestion } from './FirstQuestion';
