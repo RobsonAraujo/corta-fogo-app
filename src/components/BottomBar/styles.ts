@@ -22,18 +22,17 @@ export const ContainerBottomBarConfirmReport = styled.View``;
 
 export const Title = styled.Text`
   color: #333333;
-  font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
+  font-family: Roboto-Regular;
 `;
 
 export const Location = styled.Text`
   color: #333333;
-  font-style: normal;
-  font-weight: bold;
   font-size: 24px;
   line-height: 28px;
+  font-family: Roboto-Bold;
 `;
 
 export const ReportButton = styled(RectButton)`
@@ -48,9 +47,9 @@ export const ReportButton = styled(RectButton)`
 `;
 
 export const ReportText = styled.Text`
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #f2994a;
+  Roboto-Regular
 `;
