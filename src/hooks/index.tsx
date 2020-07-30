@@ -1,12 +1,12 @@
 import React from 'react';
 // import { AuthProvider } from './auth';
-import { ReportInfosProvider } from './reportInfos';
+import { MapInterationProvider } from './mapInteration';
 
 const AppProvider: React.FC = ({ children }) => (
-  <ReportInfosProvider>
+  <MapInterationProvider>
     {children}
     {/* <AuthProvider>{children}</AuthProvider> */}
-  </ReportInfosProvider>
+  </MapInterationProvider>
 );
 
 export default AppProvider;

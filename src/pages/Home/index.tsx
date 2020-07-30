@@ -8,11 +8,10 @@ import {
   FirstQuestion,
   SecondQuestion,
 } from '../../components/SteppersQuestions';
-import { useReportInfos } from '../../hooks/reportInfos';
+import { useMapInteration } from '../../hooks/mapInteration';
 
 const Home: React.FC = () => {
   const [modal, setModal] = useState(false);
-  const { firstQuestionAnswer } = useReportInfos();
 
   return (
     <>

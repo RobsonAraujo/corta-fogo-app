@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
-import { useReportInfos } from '../../hooks/reportInfos';
+import { useMapInteration } from '../../hooks/mapInteration';
 
 const Maps: React.FC = () => {
   const latitudeDelta = 0.0922;
@@ -12,7 +12,11 @@ const Maps: React.FC = () => {
     longitudeDelta,
   });
 
-  const { handleTempLocationReport, tempLocationReport } = useReportInfos();
+  const {
+    handleTempLocationReport,
+    tempLocationReport,
+    markersList,
+  } = useMapInteration();
 
   return (
     <MapView
@@ -27,6 +31,7 @@ const Maps: React.FC = () => {
       showsUserLocation
       onUserLocationChange={e => {
         const { latitude, longitude } = e.nativeEvent.coordinate;
+        console.log('latitude', latitude, longitude);
 
         setCoordinate({
           latitude,
@@ -43,7 +48,19 @@ const Maps: React.FC = () => {
         });
       }}
     >
-      {tempLocationReport ? (
+      {markersList &&
+        markersList.map(({ latitude, longitude, title, description }) => (
+          <Marker
+            draggable
+            coordinate={{
+              latitude,
+              longitude,
+            }}
+            title={title}
+            description={description}
+          />
+        ))}
+      {/* {tempLocationReport ? (
         <Marker
           draggable
           coordinate={{
@@ -55,7 +72,7 @@ const Maps: React.FC = () => {
         />
       ) : (
         ''
-      )}
+      )} */}
     </MapView>
   );
 };
