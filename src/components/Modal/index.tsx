@@ -117,9 +117,9 @@ const Modal: React.FC<IModalProps> = ({ show, close, children }) => {
 
         {children}
 
-        <TouchableOpacity style={styles.btn} onPress={close}>
+        {/* <TouchableOpacity style={styles.btn} onPress={close}>
           <Text style={{ color: '#fff' }}>Close</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </Animated.View>
     </Animated.View>
   );
