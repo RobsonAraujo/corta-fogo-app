@@ -26,8 +26,8 @@ const Maps: React.FC = () => {
         const { latitude, longitude } = e.nativeEvent.coordinate;
 
         setCoordinate({
-          latitude: -3.9211536,
-          longitude: -62.6135072,
+          latitude,
+          longitude,
           longitudeDelta,
           latitudeDelta,
         });

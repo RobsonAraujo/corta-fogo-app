@@ -21,7 +21,7 @@ import {
 // interface BottomBarProps {}
 
 const BottomBar: React.FC = () => {
-  const [confirmReportView, setConfirmReportView] = useState(true);
+  const [confirmReportView, setConfirmReportView] = useState(false);
 
   return (
     <Container>

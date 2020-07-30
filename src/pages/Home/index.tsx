@@ -8,14 +8,17 @@ import {
   FirstQuestion,
   SecondQuestion,
 } from '../../components/SteppersQuestions';
+import { useReportInfos } from '../../hooks/reportInfos';
 
 const Home: React.FC = () => {
   const [modal, setModal] = useState(false);
+  const { firstQuestionAnswer } = useReportInfos();
+  console.log('firstQuestionAnswer', firstQuestionAnswer);
   return (
     <>
       <Maps />
       <BottomBar />
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={{
           height: 50,
           borderRadius: 10,
@@ -28,8 +31,8 @@ const Home: React.FC = () => {
         onPress={() => setModal(true)}
       >
         <Text>Open Modal</Text>
-      </TouchableOpacity>
-      <Modal show={true} close={() => setModal(false)}>
+      </TouchableOpacity> */}
+      <Modal show={modal} close={() => setModal(false)}>
         {/* <FirstQuestion />
          */}
         <SecondQuestion />
