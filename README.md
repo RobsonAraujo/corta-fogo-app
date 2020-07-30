@@ -15,6 +15,6 @@
 - Precisa de um tela de splash
 - Precisa de um Componente que sera na parte inferior do mapa
   - Esse componente tem duas versoes
-    1: Mostra o local e o botao denunciar
+    1: Mostra o local e o botao denunciar - ok
     2: Mostra a confirmacao da denuncia
 - Precisa de um componente MODAL, onde sera exibido a opcao de se logar e se cadastrar
