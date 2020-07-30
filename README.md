@@ -1,5 +1,9 @@
 # ibm-hack-app
 
+## RNF
+
+- Configurar font
+
 ## RF
 
 - O usuario deve poder clicar no mapa para indicar um ponto, que deve ser guardado, para quando o usuario clicar em DENUNCIA, ser gerada a denuncia.

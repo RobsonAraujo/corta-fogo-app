@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import MapView, { Marker } from 'react-native-maps';
-
-import { View } from 'react-native';
-import { Title } from './styles';
+import BottomBar from '../../components/BottomBar';
 
 const Maps: React.FC = () => {
   const latitudeDelta = 0.0922;
@@ -44,6 +42,7 @@ const Maps: React.FC = () => {
           onPress={e => console.log('oi', e.nativeEvent)}
         />
       </MapView>
+      <BottomBar />
     </>
   );
 };
