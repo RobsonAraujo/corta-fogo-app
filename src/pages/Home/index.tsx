@@ -24,13 +24,12 @@ const Home: React.FC = () => {
       {/* //show={modalVisible} */}
 
       <Modal show={modalVisible}>
-        <Success />
-        {/* {stepper === steppers.Q1 && <FirstQuestion />}
+        {stepper === steppers.Q1 && <FirstQuestion />}
         {stepper === steppers.Q2 && <SecondQuestion />}
         {stepper === steppers.reportResume && <ReportResume />}
-        {stepper === steppers.success && <Success />} */}
+        {stepper === steppers.success && <Success />}
       </Modal>
-      {/* {stepper === steppers.camera && <Camera />} */}
+      {stepper === steppers.camera && <Camera />}
     </>
   );
 };

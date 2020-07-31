@@ -11,6 +11,7 @@ interface MapInterationContextData {
   markersList: Array<MarkerData>;
   tempLocationReport?: MarkerData | null;
   handleTempLocationReport(data: MarkerData): void;
+  setMarkersList(): () => any;
 }
 
 const MapInterationContext = createContext<MapInterationContextData>(
@@ -23,7 +24,7 @@ const MapInterationProvider: React.FC = ({ children }) => {
     setTempLocationReport,
   ] = useState<MarkerData | null>(null);
 
-  const [markersList] = useState<Array<MarkerData>>([
+  const [markersList, setMarkersList] = useState<Array<MarkerData>>([
     {
       latitude: -23.57666808949637,
       longitude: -46.4604427,
@@ -60,6 +61,7 @@ const MapInterationProvider: React.FC = ({ children }) => {
         tempLocationReport,
         handleTempLocationReport,
         markersList,
+        setMarkersList,
       }}
     >
       {children}

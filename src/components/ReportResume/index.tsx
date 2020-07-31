@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 import {
   TitlePage,
@@ -15,11 +15,47 @@ import {
 import ArrowLeft from '../Icons/ArrowLeft';
 import Button from '../Button';
 import { useReportInfo } from '../../hooks/reportInfo';
+import { useUI } from '../../hooks/UI';
+import { useMapInteration } from '../../hooks/mapInteration';
+import steppers from '../../constants/steppers';
 
 const ReportResume: React.FC = () => {
   const {
     data: { location, Q1answerChoosed, Q2answerChoosed, picture },
+    handleReportData,
   } = useReportInfo();
+
+  const { handleStepper, handleModal } = useUI();
+  const {
+    handleTempLocationReport,
+    tempLocationReport,
+    markersList,
+    setMarkersList,
+  } = useMapInteration();
+
+  const handleSuccess = useCallback(async () => {
+    handleStepper(steppers.success);
+
+    setTimeout(async () => {
+      //close modal
+      await handleModal(false);
+      // clean report data
+      await handleReportData({});
+      // Set new report
+      setMarkersList([
+        ...markersList,
+        {
+          latitude: tempLocationReport.latitude,
+          longitude: tempLocationReport.longitude,
+        },
+      ]);
+      // clean temporary report
+
+      handleTempLocationReport(null);
+      // set stepper to Q1
+      handleStepper(steppers.Q1);
+    }, 1800);
+  }, []);
 
   return (
     <Container>
@@ -65,7 +101,9 @@ const ReportResume: React.FC = () => {
         </ContainerPicture>
       </Box>
 
-      <Button disabled={false}>Continuar</Button>
+      <Button disabled={false} onPress={handleSuccess}>
+        Continuar
+      </Button>
     </Container>
   );
 };
