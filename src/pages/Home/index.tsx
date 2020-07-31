@@ -9,6 +9,7 @@ import {
   SecondQuestion,
 } from '../../components/SteppersQuestions';
 import Camera from '../../components/Camera';
+import ReportResume from '../../components/ReportResume';
 import { useUI } from '../../hooks/UI';
 import steppers from '../../constants/steppers';
 
@@ -21,9 +22,11 @@ const Home: React.FC = () => {
       <BottomBar />
       {/* //show={modalVisible} */}
       <Modal show>
-        {/* {stepper === steppers.Q1 && <FirstQuestion />}
-        {stepper === steppers.Q2 && <SecondQuestion />} */}
-        <Camera />
+        {stepper === steppers.Q1 && <FirstQuestion />}
+        {stepper === steppers.Q2 && <SecondQuestion />}
+        {stepper === steppers.camera && <Camera />}
+        {stepper === steppers.reportResume && <ReportResume />}
+        {/* <ReportResume /> */}
       </Modal>
     </>
   );

@@ -50,7 +50,7 @@ const FirstQuestion: React.FC = () => {
         </ChooseButton>
       </Box>
       <Button
-        onPress={() => data.Q2answerChoosed && handleStepper(steppers.Q2)}
+        onPress={() => data.Q2answerChoosed && handleStepper(steppers.camera)}
         disabled={!data.Q2answerChoosed}
       >
         Continuar
