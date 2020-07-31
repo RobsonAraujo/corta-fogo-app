@@ -9,27 +9,39 @@ interface LocationData {
 
 interface ReportInfoData {
   location: LocationData;
-  answerQ1: string;
-  answerQ2: string;
+  Q1answerChoosed: string;
+  Q2answerChoosed: string;
   picture?: HTMLImageElement;
   isValidPicture?: boolean;
 }
 
-const ReportInfo = createContext<ReportInfoData>({} as ReportInfoData);
+interface IProps {
+  data: ReportInfoData;
+  handleReportData(info: ReportInfoData): void;
+}
+
+const ReportInfo = createContext<IProps>({} as IProps);
 
 const ReportInfoProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<ReportInfoData>({} as ReportInfoData);
 
-  return <ReportInfo.Provider value={data}>{children}</ReportInfo.Provider>;
+  const handleReportData = (info: ReportInfoData) => {
+    setData(info);
+  };
+
+  return (
+    <ReportInfo.Provider value={{ data, handleReportData }}>
+      {children}
+    </ReportInfo.Provider>
+  );
 };
 
-function useReportInfo(): ReportInfoData {
+function useReportInfo(): IProps {
   const context = useContext(ReportInfo);
 
   if (!context) {
     throw new Error('useReportInfo must be used with an ReportInfoProvider');
   }
-
   return context;
 }
 

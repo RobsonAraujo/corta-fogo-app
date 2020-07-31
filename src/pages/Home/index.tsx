@@ -8,10 +8,11 @@ import {
   FirstQuestion,
   SecondQuestion,
 } from '../../components/SteppersQuestions';
-import { useUI } from '../../hooks/ui';
+import { useUI } from '../../hooks/UI';
+import steppers from '../../constants/steppers';
 
 const Home: React.FC = () => {
-  const { modalVisible } = useUI();
+  const { modalVisible, stepper } = useUI();
 
   return (
     <>
@@ -19,7 +20,8 @@ const Home: React.FC = () => {
       <BottomBar />
 
       <Modal show={modalVisible}>
-        <SecondQuestion />
+        {stepper === steppers.Q1 && <FirstQuestion />}
+        {stepper === steppers.Q2 && <SecondQuestion />}
       </Modal>
     </>
   );

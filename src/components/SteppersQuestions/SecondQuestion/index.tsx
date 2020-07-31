@@ -10,21 +10,52 @@ import {
 import Button from '../../Button';
 import ArrowLeft from '../../Icons/ArrowLeft';
 import Question from '../../../constants/questions';
+import { useReportInfo } from '../../../hooks/reportInfo';
+import steppers from '../../../constants/steppers';
+import { useUI } from '../../../hooks/UI';
 
-const SecondQuestion: React.FC = () => (
-  <Container>
-    <ArrowLeft />
-    <TitlePage>Nos ajude a entender melhor a situação do incêndio 🤔</TitlePage>
-    <Box>
-      <TitleQuestion>{Question.q2.title}</TitleQuestion>
-      <ChooseButton>
-        <ChooseText>{Question.q2.answer1}</ChooseText>
-      </ChooseButton>
-      <ChooseButton selected>
-        <ChooseText selected>{Question.q2.answer2}</ChooseText>
-      </ChooseButton>
-    </Box>
-    <Button disabled>Continuar</Button>
-  </Container>
-);
-export default SecondQuestion;
+const FirstQuestion: React.FC = () => {
+  const { title, answer1, answer2 } = Question.q2;
+
+  const { data, handleReportData } = useReportInfo();
+  const { handleStepper } = useUI();
+
+  return (
+    <Container>
+      <ArrowLeft />
+      <TitlePage>
+        Nos ajude a entender melhor a situação do incêndio 🤔
+      </TitlePage>
+      <Box>
+        <TitleQuestion>{title}</TitleQuestion>
+        <ChooseButton
+          selected={data.Q2answerChoosed === answer1}
+          onPress={() =>
+            handleReportData({ ...data, Q2answerChoosed: answer1 })
+          }
+        >
+          <ChooseText selected={data.Q2answerChoosed === answer1}>
+            {answer1}
+          </ChooseText>
+        </ChooseButton>
+        <ChooseButton
+          selected={data.Q2answerChoosed === answer2}
+          onPress={() =>
+            handleReportData({ ...data, Q2answerChoosed: answer2 })
+          }
+        >
+          <ChooseText selected={data.Q2answerChoosed === answer2}>
+            {answer2}
+          </ChooseText>
+        </ChooseButton>
+      </Box>
+      <Button
+        onPress={() => data.Q2answerChoosed && handleStepper(steppers.Q2)}
+        disabled={!data.Q2answerChoosed}
+      >
+        Continuar
+      </Button>
+    </Container>
+  );
+};
+export default FirstQuestion;
