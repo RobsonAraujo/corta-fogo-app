@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
+import Marker from '../Marker';
 import { useMapInteration } from '../../hooks/mapInteration';
+import FireImage from '../../assets/fire.png';
 
 const Maps: React.FC = () => {
   const latitudeDelta = 0.0922;
@@ -31,7 +33,6 @@ const Maps: React.FC = () => {
       showsUserLocation
       onUserLocationChange={e => {
         const { latitude, longitude } = e.nativeEvent.coordinate;
-        console.log('latitude', latitude, longitude);
 
         setCoordinate({
           latitude,
@@ -60,19 +61,15 @@ const Maps: React.FC = () => {
             description={description}
           />
         ))}
-      {/* {tempLocationReport ? (
+      {tempLocationReport && (
         <Marker
           draggable
           coordinate={{
             latitude: tempLocationReport.latitude,
             longitude: tempLocationReport.longitude,
           }}
-          title="meu title"
-          description="minha description"
         />
-      ) : (
-        ''
-      )} */}
+      )}
     </MapView>
   );
 };

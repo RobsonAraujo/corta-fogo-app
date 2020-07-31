@@ -9,7 +9,7 @@ interface MarkerData {
 
 interface MapInterationContextData {
   markersList: Array<MarkerData>;
-  tempLocationReport?: MarkerData;
+  tempLocationReport?: MarkerData | null;
   handleTempLocationReport(data: MarkerData): void;
 }
 
@@ -18,11 +18,12 @@ const MapInterationContext = createContext<MapInterationContextData>(
 );
 
 const MapInterationProvider: React.FC = ({ children }) => {
-  const [tempLocationReport, setTempLocationReport] = useState<MarkerData>(
-    {} as MarkerData,
-  );
+  const [
+    tempLocationReport,
+    setTempLocationReport,
+  ] = useState<MarkerData | null>(null);
 
-  const [markersList, setMarkersList] = useState<Array<MarkerData>>([
+  const [markersList] = useState<Array<MarkerData>>([
     {
       latitude: -3.10719,
       longitude: -60.0261,
@@ -46,8 +47,13 @@ const MapInterationProvider: React.FC = ({ children }) => {
   ] as Array<MarkerData>);
 
   const handleTempLocationReport = useCallback(
-    async ({ latitude, longitude }: MarkerData) => {
-      setTempLocationReport({ latitude, longitude });
+    async (data: MarkerData | null) => {
+      if (data) {
+        const { latitude, longitude } = data;
+        setTempLocationReport({ latitude, longitude });
+      } else {
+        setTempLocationReport(null);
+      }
     },
     [],
   );
@@ -69,7 +75,9 @@ function useMapInteration(): MapInterationContextData {
   const context = useContext(MapInterationContext);
 
   if (!context) {
-    throw new Error('useAuth must be used with an MapInterationProvider');
+    throw new Error(
+      'useMapInteration must be used with an MapInterationProvider',
+    );
   }
 
   return context;

@@ -9,18 +9,19 @@ import {
 } from '../styles';
 import Button from '../../Button';
 import ArrowLeft from '../../Icons/ArrowLeft';
+import Question from '../../../constants/questions';
 
 const FirstQuestion: React.FC = () => (
   <Container>
     <ArrowLeft />
     <TitlePage>Nos ajude a entender melhor a situação do incêndio 🤔</TitlePage>
     <Box>
-      <TitleQuestion>Onde ocorre o foco do incêndio??</TitleQuestion>
+      <TitleQuestion>{Question.q1.title}</TitleQuestion>
       <ChooseButton>
-        <ChooseText>Queima de materiais</ChooseText>
+        <ChooseText>{Question.q1.answer1}</ChooseText>
       </ChooseButton>
       <ChooseButton selected>
-        <ChooseText selected>Em árvores</ChooseText>
+        <ChooseText selected>{Question.q1.answer2}</ChooseText>
       </ChooseButton>
     </Box>
     <Button disabled>Continuar</Button>

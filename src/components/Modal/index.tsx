@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Animated,
-  Dimensions,
-} from 'react-native';
+import { View, StyleSheet, Animated, Dimensions } from 'react-native';
+import { useUI } from '../../hooks/UI';
 
 const { height } = Dimensions.get('window');
 
@@ -53,10 +47,12 @@ const styles = StyleSheet.create({
 
 interface IModalProps {
   show: boolean;
-  close(): void;
+  // close(): void;
 }
 
-const Modal: React.FC<IModalProps> = ({ show, close, children }) => {
+const Modal: React.FC<IModalProps> = ({ show, children }) => {
+  const { modalVisible } = useUI();
+
   const [state] = useState({
     opacity: new Animated.Value(0),
     container: new Animated.Value(height),
@@ -88,12 +84,12 @@ const Modal: React.FC<IModalProps> = ({ show, close, children }) => {
   };
 
   useEffect(() => {
-    if (show) {
+    if (modalVisible) {
       openModal();
     } else {
       closeModal();
     }
-  }, [show]);
+  }, [modalVisible]);
 
   return (
     <Animated.View
