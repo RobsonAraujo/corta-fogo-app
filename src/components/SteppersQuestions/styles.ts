@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   align-items: center;
+  flex: 1;
 `;
 
 export const TitlePage = styled.Text`
@@ -27,10 +28,10 @@ export const TitleQuestion = styled.Text`
 `;
 
 export const Box = styled.View`
-  margin-top: 100px;
-  min-height: 10px;
-  height: 65%;
+  margin-top: 50px;
+  height: 400px;
   align-items: center;
+  justify-content: space-around;
 `;
 
 export const ChooseButton = styled.TouchableOpacity`

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Marker } from 'react-native-maps';
-import MarkerImage from '../../assets/marker.png';
-
+import MarkerImage from '../../assets/markerTemp.png';
+import { Image } from 'react-native';
 interface Coordinate {
   latitude: number;
   longitude: number;
@@ -29,10 +29,15 @@ const ContainerMarker: React.FC = ({
         latitude: coordinate.latitude,
         longitude: coordinate.longitude,
       }}
-      title={title}
-      description={description}
-      image={image}
-    />
+      // title={title}
+      // description={description}
+    >
+      <Image
+        source={image}
+        style={{ width: 50, height: 50 }}
+        resizeMode="contain"
+      />
+    </Marker>
   );
 };
 

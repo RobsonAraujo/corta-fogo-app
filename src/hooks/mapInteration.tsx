@@ -25,24 +25,20 @@ const MapInterationProvider: React.FC = ({ children }) => {
 
   const [markersList] = useState<Array<MarkerData>>([
     {
-      latitude: -3.10719,
-      longitude: -60.0261,
+      latitude: -23.57666808949637,
+      longitude: -46.4604427,
     },
     {
-      latitude: 37.79583,
-      longitude: -122.404417,
+      latitude: -23.52666808949637,
+      longitude: -46.4604427,
     },
     {
-      latitude: 37.788839,
-      longitude: -122.40641,
+      latitude: -23.48666808949637,
+      longitude: -46.4604427,
     },
     {
-      latitude: 37.782834,
-      longitude: -122.406417,
-    },
-    {
-      latitude: 37.711839,
-      longitude: -122.406417,
+      latitude: -23.41666808949637,
+      longitude: -46.2004427,
     },
   ] as Array<MarkerData>);
 

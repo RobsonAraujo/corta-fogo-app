@@ -5,8 +5,8 @@ import { useMapInteration } from '../../hooks/mapInteration';
 import FireImage from '../../assets/fire.png';
 
 const Maps: React.FC = () => {
-  const latitudeDelta = 0.0922;
-  const longitudeDelta = 0.0421;
+  const latitudeDelta = 0.1922;
+  const longitudeDelta = 0.1421;
   const [coordinate, setCoordinate] = useState({
     latitude: -3.10719,
     longitude: -60.0261,
@@ -43,6 +43,7 @@ const Maps: React.FC = () => {
       }}
       onPress={e => {
         const { latitude, longitude } = e.nativeEvent.coordinate;
+        console.log('latitude', latitude, longitude);
         handleTempLocationReport({
           latitude,
           longitude,

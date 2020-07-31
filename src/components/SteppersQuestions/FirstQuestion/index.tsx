@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import {
   Container,
   TitlePage,
@@ -27,34 +28,36 @@ const FirstQuestion: React.FC = () => {
         Nos ajude a entender melhor a situação do incêndio 🤔
       </TitlePage>
       <Box>
-        <TitleQuestion>{title}</TitleQuestion>
-        <ChooseButton
-          selected={data.Q1answerChoosed === answer1}
-          onPress={() =>
-            handleReportData({ ...data, Q1answerChoosed: answer1 })
-          }
+        <View>
+          <TitleQuestion>{title}</TitleQuestion>
+          <ChooseButton
+            selected={data.Q1answerChoosed === answer1}
+            onPress={() =>
+              handleReportData({ ...data, Q1answerChoosed: answer1 })
+            }
+          >
+            <ChooseText selected={data.Q1answerChoosed === answer1}>
+              {answer1}
+            </ChooseText>
+          </ChooseButton>
+          <ChooseButton
+            selected={data.Q1answerChoosed === answer2}
+            onPress={() =>
+              handleReportData({ ...data, Q1answerChoosed: answer2 })
+            }
+          >
+            <ChooseText selected={data.Q1answerChoosed === answer2}>
+              {answer2}
+            </ChooseText>
+          </ChooseButton>
+        </View>
+        <Button
+          onPress={() => data.Q1answerChoosed && handleStepper(steppers.Q2)}
+          disabled={!data.Q1answerChoosed}
         >
-          <ChooseText selected={data.Q1answerChoosed === answer1}>
-            {answer1}
-          </ChooseText>
-        </ChooseButton>
-        <ChooseButton
-          selected={data.Q1answerChoosed === answer2}
-          onPress={() =>
-            handleReportData({ ...data, Q1answerChoosed: answer2 })
-          }
-        >
-          <ChooseText selected={data.Q1answerChoosed === answer2}>
-            {answer2}
-          </ChooseText>
-        </ChooseButton>
+          Continuar
+        </Button>
       </Box>
-      <Button
-        onPress={() => data.Q1answerChoosed && handleStepper(steppers.Q2)}
-        disabled={!data.Q1answerChoosed}
-      >
-        Continuar
-      </Button>
     </Container>
   );
 };

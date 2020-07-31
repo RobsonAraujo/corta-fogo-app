@@ -21,13 +21,13 @@ const Home: React.FC = () => {
       <Maps />
       <BottomBar />
       {/* //show={modalVisible} */}
-      <Modal show>
+
+      <Modal show={modalVisible}>
         {stepper === steppers.Q1 && <FirstQuestion />}
         {stepper === steppers.Q2 && <SecondQuestion />}
-        {stepper === steppers.camera && <Camera />}
         {stepper === steppers.reportResume && <ReportResume />}
-        {/* <ReportResume /> */}
       </Modal>
+      {stepper === steppers.camera && <Camera />}
     </>
   );
 };
