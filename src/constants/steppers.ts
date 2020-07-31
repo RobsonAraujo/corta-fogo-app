@@ -3,6 +3,7 @@ interface IData {
   Q2: number;
   camera: number;
   reportResume: number;
+  success: number;
 }
 
 const Data: IData = {
@@ -10,6 +11,7 @@ const Data: IData = {
   Q2: 2,
   camera: 3,
   reportResume: 4,
+  success: 5,
 };
 
 export default Data;

@@ -46,7 +46,7 @@ const BottomBar: React.FC = () => {
         <ContainerBottomBarInfo>
           <View>
             <Title>Você está em:</Title>
-            <Location>Amazonas</Location>
+            <Location>Itaquera</Location>
           </View>
           <ReportButton>
             <Image source={fireImage} />

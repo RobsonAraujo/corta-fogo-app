@@ -12,6 +12,7 @@ import Camera from '../../components/Camera';
 import ReportResume from '../../components/ReportResume';
 import { useUI } from '../../hooks/UI';
 import steppers from '../../constants/steppers';
+import Success from '../../components/success';
 
 const Home: React.FC = () => {
   const { modalVisible, stepper } = useUI();
@@ -23,11 +24,13 @@ const Home: React.FC = () => {
       {/* //show={modalVisible} */}
 
       <Modal show={modalVisible}>
-        {stepper === steppers.Q1 && <FirstQuestion />}
+        <Success />
+        {/* {stepper === steppers.Q1 && <FirstQuestion />}
         {stepper === steppers.Q2 && <SecondQuestion />}
         {stepper === steppers.reportResume && <ReportResume />}
+        {stepper === steppers.success && <Success />} */}
       </Modal>
-      {stepper === steppers.camera && <Camera />}
+      {/* {stepper === steppers.camera && <Camera />} */}
     </>
   );
 };

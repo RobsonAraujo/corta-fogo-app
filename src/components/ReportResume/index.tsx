@@ -18,7 +18,7 @@ import { useReportInfo } from '../../hooks/reportInfo';
 
 const ReportResume: React.FC = () => {
   const {
-    data: { location, Q1answerChoosed, Q2answerChoosed },
+    data: { location, Q1answerChoosed, Q2answerChoosed, picture },
   } = useReportInfo();
 
   return (
@@ -28,13 +28,13 @@ const ReportResume: React.FC = () => {
       <Box>
         <ContainerTextInput>
           <Title>Local do incêndio</Title>
-          <Subtitle>{location ? location.city : 'Amazonia'}</Subtitle>
+          <Subtitle>{location ? location.city : 'Itaquera'}</Subtitle>
         </ContainerTextInput>
         <ContainerTextInput>
           <Title>Onde ocorre o foco do incêndio?</Title>
           <Subtitle>{Q1answerChoosed}</Subtitle>
         </ContainerTextInput>
-        <ContainerTextInput>
+        <ContainerTextInput bottom>
           <Title>Qual a proporção do incêndio?</Title>
           <Subtitle>{Q2answerChoosed}</Subtitle>
         </ContainerTextInput>
@@ -44,15 +44,16 @@ const ReportResume: React.FC = () => {
         <ContainerPicture>
           <Image
             source={{
-              width: 51,
-              height: 82,
-              uri:
-                'https://ipam.org.br/wp-content/uploads/2019/07/P1050566.jpg',
+              width: 100,
+              height: 100,
+              uri: picture,
             }}
           />
           <BoxPictureActions>
             <TouchableOpacity>
-              <GreenText>👀 Ver a foto</GreenText>
+              <>
+                <GreenText>👀 Ver a foto</GreenText>
+              </>
             </TouchableOpacity>
             <TouchableOpacity>
               <GreenText>📸 Tirar outra foto</GreenText>

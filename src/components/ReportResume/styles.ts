@@ -16,7 +16,7 @@ export const TitlePage = styled.Text`
 `;
 
 export const Box = styled.View`
-  margin-top: 100px;
+  margin-top: 50px;
   min-height: 10px;
   width: 100%;
   height: 65%;
@@ -27,7 +27,7 @@ export const ContainerTextInput = styled.View`
   height: 65px;
   border-top-width: 1px;
   border-top-color: #bdbdbd;
-  border-bottom-width: 1px;
+  border-bottom-width: ${({ bottom }) => (bottom ? '1px' : '0px')};
   border-bottom-color: #bdbdbd;
   justify-content: center;
 `;

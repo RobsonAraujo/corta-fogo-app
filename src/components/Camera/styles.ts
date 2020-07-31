@@ -9,13 +9,11 @@ export const Container = styled.View`
 
 export const Preview = styled(RNCamera)`
   flex: 1;
-  border: 1px solid red;
 `;
 
 export const ButtonTakePicture = styled.TouchableOpacity`
   flex: 1;
   height: 100%;
-  border: 1px solid green;
   padding-bottom: 40px;
   align-items: center;
   justify-content: flex-end;

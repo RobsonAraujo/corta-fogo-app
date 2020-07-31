@@ -22,6 +22,7 @@ const Maps: React.FC = () => {
 
   return (
     <MapView
+      zoomEnabled={false}
       style={{
         position: 'absolute',
         top: 0,
