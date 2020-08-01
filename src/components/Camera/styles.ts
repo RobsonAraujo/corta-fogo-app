@@ -26,3 +26,18 @@ export const ContainerButton = styled.View`
   right: 0;
   align-items: center;
 `;
+
+export const ContainerLoading = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 200;
+  right: 0;
+  left: 0;
+`;
+
+export const TextAnalising = styled.Text`
+  color: white;
+  margin-bottom: 20px;
+`;

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { View, Text, Image, Dimensions } from 'react-native';
+import { View, Text, Image, Dimensions, ActivityIndicator } from 'react-native';
 import { RNCamera } from 'react-native-camera';
 
 import Button from '../Button';
@@ -11,6 +11,8 @@ import {
   Preview,
   ButtonTakePicture,
   ContainerButton,
+  ContainerLoading,
+  TextAnalising,
 } from './styles';
 import CameraImage from '../../assets/camera.png';
 
@@ -31,16 +33,32 @@ const Camera: React.FC = () => {
   const { handleStepper } = useUI();
   const { data, handleReportData } = useReportInfo();
   const [viewImage, setViewImage] = useState(false);
+  const [isValidImage, setIsValidImage] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [tryNumber, setTryNumber] = useState(1);
 
   const takePicture = useCallback(async camera => {
     const options = { quality: 0.5, base64: true };
     const pictureData = await camera.takePictureAsync(options);
+
+    setIsLoading(true);
     setViewImage(true);
     handleReportData({
       ...data,
       picture: pictureData.uri,
       isValidPicture: true,
     });
+
+    setTimeout(function () {
+      setIsLoading(false);
+      if (tryNumber !== 1) {
+        setIsValidImage(true);
+        setTryNumber(tryNumber + 1);
+      } else {
+        setIsValidImage(false);
+        setTryNumber(tryNumber + 1);
+      }
+    }, 3000);
   }, []);
 
   return (
@@ -54,12 +72,19 @@ const Camera: React.FC = () => {
               height: Dimensions.get('window').height,
             }}
           />
+          {isLoading && (
+            <ContainerLoading>
+              <TextAnalising>Estamos analisanto a imagem</TextAnalising>
+              <ActivityIndicator size="large" color="#F2994A" />
+            </ContainerLoading>
+          )}
+
           <ContainerButton>
             <Button
               onPress={() =>
                 data.isValidPicture && handleStepper(steppers.reportResume)
               }
-              disabled={!data.isValidPicture}
+              disabled={isLoading}
             >
               Continuar
             </Button>

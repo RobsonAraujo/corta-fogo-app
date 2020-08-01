@@ -10,6 +10,7 @@ const App: React.FC = () => {
   useEffect(() => {
     SplashScreen.hide();
   });
+  console.disableYellowBox = true;
   return (
     <NavigationContainer>
       <StatusBar barStyle="light-content" backgroundColor="#312e38" />

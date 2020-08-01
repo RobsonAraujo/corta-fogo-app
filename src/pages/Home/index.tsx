@@ -21,8 +21,6 @@ const Home: React.FC = () => {
     <>
       <Maps />
       <BottomBar />
-      {/* //show={modalVisible} */}
-
       <Modal show={modalVisible}>
         {stepper === steppers.Q1 && <FirstQuestion />}
         {stepper === steppers.Q2 && <SecondQuestion />}
