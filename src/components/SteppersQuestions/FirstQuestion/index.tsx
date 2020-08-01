@@ -16,7 +16,7 @@ import steppers from '../../../constants/steppers';
 import { useUI } from '../../../hooks/UI';
 
 const FirstQuestion: React.FC = () => {
-  const { title, answer1, answer2 } = Question.q1;
+  const { title, answer1, answer2, answer3 } = Question.q1;
 
   const { data, handleReportData } = useReportInfo();
   const { handleStepper } = useUI();
@@ -48,6 +48,17 @@ const FirstQuestion: React.FC = () => {
           >
             <ChooseText selected={data.Q1answerChoosed === answer2}>
               {answer2}
+            </ChooseText>
+          </ChooseButton>
+
+          <ChooseButton
+            selected={data.Q1answerChoosed === answer3}
+            onPress={() =>
+              handleReportData({ ...data, Q1answerChoosed: answer3 })
+            }
+          >
+            <ChooseText selected={data.Q1answerChoosed === answer3}>
+              {answer3}
             </ChooseText>
           </ChooseButton>
         </View>
